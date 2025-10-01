@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Suma de dos números</title>
+</head>
+
+<body>
+
+  <script>
+    function cadenaInversa() {
+        let palabra;
+        palabra = document.querySelector("input").value;
+        let palabraInversa = palabra.split("").reverse().join("");
+        console.log("La palabra al reves es: " + palabraInversa);
+    }
+
+  </script>
+
+  <input type="text">
+  <button onclick="cadenaInversa()">Envia</button>
+
+</body>
+
+</html>
