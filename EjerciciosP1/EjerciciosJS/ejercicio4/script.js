@@ -1,3 +1,33 @@
+/* Menu toggle (moved from inline) */
+(function(){
+  const btn = document.getElementById('menuBtn');
+  const sidenav = document.getElementById('sidenav');
+  function toggleNav(){
+    if(!sidenav) return;
+    const open = sidenav.classList.toggle('open');
+    sidenav.setAttribute('aria-hidden', String(!open));
+  }
+  if(btn) btn.addEventListener('click', toggleNav);
+  document.addEventListener('keydown', e => { if(e.key === 'Escape' && sidenav) sidenav.classList.remove('open'); });
+  if(sidenav) sidenav.addEventListener('click', e => { if(e.target.tagName === 'A') sidenav.classList.remove('open'); });
+  window.toggleNav = toggleNav;
+})();
+
+/* Exercise functions */
+function sumarDesdeInputs(){
+  const a = Number(document.getElementById('a').value);
+  const b = Number(document.getElementById('b').value);
+  if (Number.isNaN(a) || Number.isNaN(b)) {
+    const el = document.getElementById('resultado');
+    if(el) el.textContent = 'Introduce dos números válidos.';
+    console.error('Entradas no válidas', a, b);
+    return;
+  }
+  const suma = a + b;
+  console.log('Suma:', suma);
+  const el = document.getElementById('resultado');
+  if(el) el.textContent = `Resultado: ${suma}`;
+}
 function mostrarVariables() {
      let num1 = 0;
     let num2 = 0;

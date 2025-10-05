@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ejercicio 21</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+ <!-- Topbar + Sidenav -->
+    <header class="topbar">
+      <div class="brand">Ejercicios</div>
+      <button id="menuBtn" class="hamburger" aria-label="Abrir menú">☰</button>
+    </header>
+
+    <nav id="sidenav" class="sidenav" aria-hidden="true">
+      <div class="sidenav-inner card">
+        <h3>Ir a</h3>
+        <ul>
+          <li><a href="../ejercicio1/index.html">Ejercicio 1</a></li>
+          <li><a href="../ejercicio2/index.html">Ejercicio 2</a></li>
+          <li><a href="../ejercicio3/index.html">Ejercicio 3</a></li>
+          <li><a href="../ejercicio4/index.html">Ejercicio 4</a></li>
+          <li><a href="../ejercicio5/index.html">Ejercicio 5</a></li>
+          <li><a href="../ejercicio6/index.html">Ejercicio 6</a></li>
+          <li><a href="../ejercicio7/index.html">Ejercicio 7</a></li>
+          <li><a href="../ejercicio8/index.html">Ejercicio 8</a></li>
+          <li><a href="../ejercicio9/index.html">Ejercicio 9</a></li>
+          <li><a href="../ejercicio10/index.html">Ejercicio 10</a></li>
+          <li><a href="../ejercicio11/index.html">Ejercicio 11</a></li>
+          <li><a href="../ejercicio12/index.html">Ejercicio 12</a></li>
+          <li><a href="../ejercicio13/index.html">Ejercicio 13</a></li>
+          <li><a href="../ejercicio14/index.html">Ejercicio 14</a></li>
+          <li><a href="../ejercicio15/index.html">Ejercicio 15</a></li>
+          <li><a href="../ejercicio16/index.html">Ejercicio 16</a></li>
+          <li><a href="../ejercicio17/index.html">Ejercicio 17</a></li>
+          <li><a href="../ejercicio18/index.html">Ejercicio 18</a></li>
+          <li><a href="../ejercicio19/index.html">Ejercicio 19</a></li>
+          <li><a href="../ejercicio20/index.html">Ejercicio 20</a></li>
+          <li><a href="../ejercicio21/index.html">Ejercicio 21</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <section class="enunciado">
+        <p>Filtrar números mayores que un valor. Escribe una función que tome un array de números y un valor, y devuelva un nuevo array con los números que son mayores que ese valor.</p>
+      </section>
+
+      <label for="nums">Introduce números separados por comas:</label>
+      <input id="nums" type="text" style="width:60%" placeholder="Ej: 1,2,3,4,5" />
+      <br /><br />
+      <label for="valor">Valor límite:</label>
+      <input id="valor" type="number" placeholder="Ej: 3" />
+      <button onclick="filtrarMayores()">Filtrar mayores</button>
+
+      <div id="resultado" class="output"></div>
+
+    </div>
+
+</body>
+</html>
