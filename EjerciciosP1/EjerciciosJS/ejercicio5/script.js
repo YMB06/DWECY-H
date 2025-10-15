@@ -1,17 +1,3 @@
-/* Menu toggle (moved from inline) */
-(function(){
-  const btn = document.getElementById('menuBtn');
-  const sidenav = document.getElementById('sidenav');
-  function toggleNav(){
-    if(!sidenav) return;
-    const open = sidenav.classList.toggle('open');
-    sidenav.setAttribute('aria-hidden', String(!open));
-  }
-  if(btn) btn.addEventListener('click', toggleNav);
-  document.addEventListener('keydown', e => { if(e.key === 'Escape' && sidenav) sidenav.classList.remove('open'); });
-  if(sidenav) sidenav.addEventListener('click', e => { if(e.target.tagName === 'A') sidenav.classList.remove('open'); });
-  window.toggleNav = toggleNav;
-})();
 
 /* Ejercicio 5: comprobar si un número es par */
 function esPar() {

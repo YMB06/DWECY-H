@@ -1,19 +1,4 @@
-/* Menu toggle (moved from inline) */
-(function(){
-  const btn = document.getElementById('menuBtn');
-  const sidenav = document.getElementById('sidenav');
-  function toggleNav(){
-    if(!sidenav) return;
-    const open = sidenav.classList.toggle('open');
-    sidenav.setAttribute('aria-hidden', String(!open));
-  }
-  if(btn) btn.addEventListener('click', toggleNav);
-  document.addEventListener('keydown', e => { if(e.key === 'Escape' && sidenav) sidenav.classList.remove('open'); });
-  if(sidenav) sidenav.addEventListener('click', e => { if(e.target.tagName === 'A') sidenav.classList.remove('open'); });
-  window.toggleNav = toggleNav;
-})();
 
-/* Exercise functions */
 function sumarDesdeInputs(){
   const a = Number(document.getElementById('a').value);
   const b = Number(document.getElementById('b').value);
@@ -44,5 +29,6 @@ function mostrarVariables() {
     nombre = prompt("bao, dame un nombre");
     apellidos = prompt("bao, apellidos");
     edad = parseInt(prompt("BRO tu edad"));
-    console.log("Tu nombre eh" + nombre + " " + apellidos + " y tebes " + edad + " años");
+    console.log("Tu nombre eh " + nombre + " " + apellidos 
+      + " y tienes " + edad + " años");
 }

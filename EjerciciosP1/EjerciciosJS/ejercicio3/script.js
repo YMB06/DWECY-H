@@ -1,17 +1,4 @@
-/* Menu toggle and ejercicio3 functions */
-(function(){
-  const btn = document.getElementById('menuBtn');
-  const sidenav = document.getElementById('sidenav');
-  function toggleNav(){
-    if(!sidenav) return;
-    const open = sidenav.classList.toggle('open');
-    sidenav.setAttribute('aria-hidden', String(!open));
-  }
-  if(btn) btn.addEventListener('click', toggleNav);
-  document.addEventListener('keydown', e => { if(e.key === 'Escape' && sidenav) sidenav.classList.remove('open'); });
-  if(sidenav) sidenav.addEventListener('click', e => { if(e.target.tagName === 'A') sidenav.classList.remove('open'); });
-  window.toggleNav = toggleNav;
-})();
+
 
 function mostrarPersona(){
   const persona = {
@@ -27,3 +14,14 @@ function mostrarPersona(){
   if(out) out.textContent = 'Persona mostrada en consola.';
 }
 window.mostrarPersona = mostrarPersona;
+
+let persona = [{ nombre: 'Youssef', edad: 23, email: 'youssef@gmail.com' },
+{ nombre: 'Ana', edad: 22, email: 'ana@gmail.com' },
+{ nombre: 'Luis', edad: 21, email: 'luis@gmail.com' }];
+let coche = [{ marca: 'Toyota', modelo: 'Corolla', color: 'Rojo' },
+{ marca: 'Honda', modelo: 'Civic', color: 'Azul' },
+{ marca: 'Ford', modelo: 'Focus', color: 'Verde' }];
+
+console.log(persona, coche);
+console.table(persona);
+console.table(coche);

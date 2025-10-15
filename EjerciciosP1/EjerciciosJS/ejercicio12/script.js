@@ -1,15 +1,3 @@
-// Menu toggle functionality
-(function(){
-  const btn = document.getElementById('menuBtn');
-  const sidenav = document.getElementById('sidenav');
-  function toggleNav(){
-    const open = sidenav.classList.toggle('open');
-    sidenav.setAttribute('aria-hidden', String(!open));
-  }
-  btn && btn.addEventListener('click', toggleNav);
-  document.addEventListener('keydown', e => { if(e.key === 'Escape') sidenav.classList.remove('open'); });
-  sidenav.addEventListener('click', e => { if(e.target.tagName === 'A') sidenav.classList.remove('open'); });
-})();
 
 function filtrarPares(numeros) {
     return numeros.filter(num => num % 2 === 0);
@@ -24,7 +12,8 @@ function filtrarParesUI() {
   const arr = raw.split(',').map(s => s.trim()).filter(s => s !== '').map(Number);
 
   if (arr.length === 0 || arr.some(n => Number.isNaN(n))) {
-    resultado.textContent = 'Por favor introduce una lista válida de números separados por comas.';
+    resultado.textContent = 
+    'Por favor introduce una lista válida de números separados por comas.';
     return;
   }
 
