@@ -2,6 +2,8 @@
 import ParticipanteFormulario from './components/ParticipanteFormulario';
 import ParticipanteLista from './components/ParticipanteLista';
 import Tablero from './components/Tablero';
+import Sorteo from './components/Sorteo';
+import Estadisticas from './components/Estadisticas';
 </script>
 
 <template>
@@ -9,6 +11,8 @@ import Tablero from './components/Tablero';
   <ParticipanteFormulario />
   <ParticipanteLista />
   <Tablero />
+  <Sorteo />
+  <Estadisticas />
 </template>
 
 
