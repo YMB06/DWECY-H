@@ -1,58 +1,101 @@
-import type { Participante } from '../models/Participante';
+import { Participante, ValidationError, DuplicateError } from '../models/Participante';
 
-// Clave para guardar los datos en localStorage
-const STORAGE_KEY = 'participantes';
+const STORAGE_KEY = 'participantes_v2';
 
-// Carga los participantes desde localStorage al iniciar la app
+/**
+ * Carga participantes desde localStorage y reconstrulle instancias de Participante.
+ */
 function cargarParticipantes(): Participante[] {
   const data = localStorage.getItem(STORAGE_KEY);
-  return data ? JSON.parse(data) : [];
+  if (!data) return [];
+  try {
+    const raw = JSON.parse(data) as Array<any>;
+    return raw.map(r => new Participante(r.nombre, r.email, r.telefono, r.numeros || []));
+  } catch {
+    return [];
+  }
 }
 
-// Guarda el array de participantes en localStorage
 function guardarParticipantes(participantes: Participante[]) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(participantes));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(participantes.map(p => p.toJSON())));
 }
 
-// Variable global que mantiene la lista de participantes en memoria
 let participantes: Participante[] = cargarParticipantes();
 
 /**
- * Agrega un nuevo participante si el email no está registrado.
- * Devuelve true si se agrego correctamente, false si el email ya existe.
+ * Intenta agregar un participante. Devuelve true si se agrega, false si el email ya existe
+ * o si hay un error de validacion. Para uso interno/avanzado use agregarParticipanteOrThrow.
  */
 export function agregarParticipante(nombre: string, email: string, telefono: string): boolean {
-  if (participantes.some(p => p.email === email)) return false; // Validacion de duplicados
-  participantes.push({ nombre, email, telefono, numeros: [] });
-  guardarParticipantes(participantes); // Persistencia en localStorage
+  try {
+    return agregarParticipanteOrThrow(nombre, email, telefono) !== undefined;
+  } catch (e) {
+    // se podria loguear e informar al UI
+    return false;
+  }
+}
+
+/**
+ * Agrega un participante y lanza si hay problemas (duplicado o validacion).
+ * @throws DuplicateError si ya existe un participante con el mismo email
+ * @throws ValidationError si nombre/email/telefono no son validos
+ */
+export function agregarParticipanteOrThrow(nombre: string, email: string, telefono: string): Participante {
+  if (participantes.some(p => p.email === email)) {
+    throw new DuplicateError('Email ya registrado');
+  }
+  const p = new Participante(nombre, email, telefono);
+  participantes.push(p);
+  guardarParticipantes(participantes);
+  return p;
+}
+
+/**
+ * Devuelve la lista de participantes (POJOs) para uso en componentes.
+ */
+export function obtenerParticipantes(): Array<{ nombre: string; email: string; telefono: string; numeros: number[] }> {
+  return participantes.map(p => p.toJSON());
+}
+
+/**
+ * Asigna un numero a un participante identificado por email.
+ * Devuelve true si se asigna, false si no (por ejemplo participante no existe o numero duplicado).
+ */
+export function asignarNumero(email: string, numero: number): boolean {
+  const p = participantes.find(x => x.email === email);
+  if (!p) return false;
+  try {
+    p.addNumero(numero);
+    guardarParticipantes(participantes);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+/**
+ * Libera un numero para un participante identificado por email.
+ */
+export function liberarNumero(email: string, numero: number): boolean {
+  const p = participantes.find(x => x.email === email);
+  if (!p) return false;
+  p.removeNumero(numero);
+  guardarParticipantes(participantes);
   return true;
 }
 
 /**
- * Devuelve la lista completa de participantes registrados.
+ * Versiones que lanzan errores para uso interno/avanzado
  */
-export function obtenerParticipantes(): Participante[] {
-  return participantes;
+export function asignarNumeroOrThrow(email: string, numero: number) {
+  const p = participantes.find(x => x.email === email);
+  if (!p) throw new Error('Participante no existe');
+  p.addNumero(numero); // puede lanzar DuplicateError
+  guardarParticipantes(participantes);
 }
-
-/**
- * Asigna un numero a un participante por email, si aun no lo tiene.
- */
-export function asignarNumero(email: string, numero: number) {
-  const participante = participantes.find(p => p.email === email);
-  if (participante && !participante.numeros.includes(numero)) {
-    participante.numeros.push(numero);
-    guardarParticipantes(participantes); // Actualiza
-  }
-}
-
-/**
- * Elimina un numero reservado por el participante (libera el numero).
- */
-export function liberarNumero(email: string, numero: number) {
-  const participante = participantes.find(p => p.email === email);
-  if (participante) {
-    participante.numeros = participante.numeros.filter(n => n !== numero);
-    guardarParticipantes(participantes); // Actualiza 
-  }
+export function liberarNumeroOrThrow(email: string, numero: number) {
+  const p = participantes.find(x => x.email === email);
+  if (!p) throw new Error('Participante no existe');
+  p.removeNumero(numero);
+  guardarParticipantes(participantes);
 }
