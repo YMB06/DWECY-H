@@ -25,7 +25,7 @@ onUnmounted(() => {
 
 watch(scrollProgress, (newValue) => {
     const progressBar = document.getElementById('ScrollProgressBar');
-    
+
     if (progressBar) {
         progressBar.style.width =  `${newValue}%`;
     }

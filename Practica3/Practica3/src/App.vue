@@ -1,21 +1,17 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
 import ScrollProgressBar from './components/Punto1/Punto1-3/ScrollProgressBar.vue'
+import SmartRedirector from './components/Punto2/Punto2-3/SmartRedirector.vue';
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+    <h1>Vue Components Test</h1>
   </header>
 
   <main>
-    <TheWelcome />
     <ScrollProgressBar />
+    <SmartRedirector />
+
   </main>
 </template>
 
