@@ -2,6 +2,7 @@
     <div>
         Comprobando entorno... (VEN Y SANA MI DOOOOOOLOOOOOR)
         <button @click="elegirNav()">Seleccionar Navegador</button>
+        <button @click="redirgirTimer()">Redirector con contador</button>
     </div>
 </template>
 
@@ -33,9 +34,6 @@ onMounted(() => {
 })
 
 //seleccionar navegador
-/*Seleccionar navegador. Crear una función llamada selectNav() que detecte el navegador
-que tenemos y dependiendo de este, cargue una página llamada firefox.html o chrome.html.
-*/
 function elegirNav() {
     if (navigator.userAgent.includes('Firefox')) {
         window.location.href = 'firefox.html';
@@ -45,6 +43,19 @@ function elegirNav() {
         window.location.href = 'otros.html';
     }
 } 
+
+//redireccionar con un timer
+function redirgirTimer() {
+    setTimeout(() => {
+        elegirNav();
+    }, 5000);
+}
+
+
+
+
+
+
 
 
 </script>
