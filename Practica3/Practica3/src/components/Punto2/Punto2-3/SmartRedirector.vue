@@ -1,6 +1,7 @@
 <template>
     <div>
         Comprobando entorno... (VEN Y SANA MI DOOOOOOLOOOOOR)
+        <button @click="elegirNav()">Seleccionar Navegador</button>
     </div>
 </template>
 
@@ -30,6 +31,21 @@ onMounted(() => {
         console.log('Navegador desconocido');
     }
 })
+
+//seleccionar navegador
+/*Seleccionar navegador. Crear una función llamada selectNav() que detecte el navegador
+que tenemos y dependiendo de este, cargue una página llamada firefox.html o chrome.html.
+*/
+function elegirNav() {
+    if (navigator.userAgent.includes('Firefox')) {
+        window.location.href = 'firefox.html';
+    } else if (navigator.userAgent.includes('Chrome')) {
+        window.location.href = 'chrome.html';
+    } else {
+        window.location.href = 'otros.html';
+    }
+} 
+
 
 </script>
 
