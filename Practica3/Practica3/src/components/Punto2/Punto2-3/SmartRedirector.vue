@@ -3,6 +3,8 @@
         Comprobando entorno... (VEN Y SANA MI DOOOOOOLOOOOOR)
         <button @click="elegirNav()">Seleccionar Navegador</button>
         <button @click="redirgirTimer()">Redirector con contador</button>
+        <button @click="enforceHTTPS()">Forzar HTTPS</button>
+        <button @click="redirigirIdioma()">Redirigir por idioma</button>
     </div>
 </template>
 
@@ -51,11 +53,34 @@ function redirgirTimer() {
     }, 5000);
 }
 
+//redireccion a https
+function enforceHTTPS() {
+    const isLocalhost = window.location.hostname === 'localhost' || 
+                    window.location.hostname === '127.0.0.1';
 
+    if (!isLocalhost && window.location.protocol !== 'https:') {
+        window.location.href = window.location.href.replace('http://', 'https://');
+    }
+}
 
+//redireccion por idioma
+function redirigirIdioma() {
+    const params = new URLSearchParams(window.location.search);
+const lang = params.get('lang');
 
-
-
+    if (lang) {
+        switch (lang) {
+            case 'es':
+                window.location.href = 'index.html?lang=es';
+                break;
+            case 'en':
+                window.location.href = 'index.html?lang=en';
+                break;
+            default:
+                window.location.href = 'index.html';
+        }
+    }
+}
 
 
 </script>
