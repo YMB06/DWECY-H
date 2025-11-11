@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ScrollProgressBar from './components/Punto1/Punto1-3/ScrollProgressBar.vue'
 import SmartRedirector from './components/Punto2/Punto2-3/SmartRedirector.vue';
+import ProximityDetector from './components/Punto3/Punto3-3/ProximityDetector.vue';
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import SmartRedirector from './components/Punto2/Punto2-3/SmartRedirector.vue';
   <main>
     <ScrollProgressBar />
     <SmartRedirector />
+    <ProximityDetector />
 
   </main>
 </template>

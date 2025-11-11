@@ -1,3 +1,15 @@
+<template>
+    <div id="ScrollProgressBar" class="scroll-progress-bar" :style="{ width: scrollProgress + '%' }">
+        <div class="scroll-progress-bar-fill" :style="{ width: scrollProgress + '%' }">
+            <span class="scroll-progress-bar-fill-text">{{ scrollProgress }}%</span>
+            <div class="scroll-progress-bar-fill-background">
+                <span class="scroll-progress-bar-fill-background-text">Scroll Progress</span>
+            </div>
+
+        </div>
+    </div>
+</template>
+
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch } from 'vue';
 
@@ -32,18 +44,6 @@ watch(scrollProgress, (newValue) => {
 });
 
 </script>
-
-<template>
-    <div id="ScrollProgressBar" class="scroll-progress-bar" :style="{ width: scrollProgress + '%' }">
-        <div class="scroll-progress-bar-fill" :style="{ width: scrollProgress + '%' }">
-            <span class="scroll-progress-bar-fill-text">{{ scrollProgress }}%</span>
-            <div class="scroll-progress-bar-fill-background">
-                <span class="scroll-progress-bar-fill-background-text">Scroll Progress</span>
-            </div>
-
-        </div>
-    </div>
-</template>
 
 <style scoped>
 .scroll-progress-bar {
