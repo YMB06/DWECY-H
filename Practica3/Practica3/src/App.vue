@@ -2,6 +2,7 @@
 import ScrollProgressBar from './components/Punto1/Punto1-3/ScrollProgressBar.vue'
 import SmartRedirector from './components/Punto2/Punto2-3/SmartRedirector.vue';
 import ProximityDetector from './components/Punto3/Punto3-3/ProximityDetector.vue';
+import CopyToClipboard from './components/Punto3/Punto3-4/CopyToClipboard.vue';
 </script>
 
 <template>
@@ -13,6 +14,7 @@ import ProximityDetector from './components/Punto3/Punto3-3/ProximityDetector.vu
     <ScrollProgressBar />
     <SmartRedirector />
     <ProximityDetector />
+    <CopyToClipboard textToCopy="kirby" />
 
   </main>
 </template>
