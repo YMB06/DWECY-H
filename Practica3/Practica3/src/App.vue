@@ -3,6 +3,9 @@ import ScrollProgressBar from './components/Punto1/Punto1-3/ScrollProgressBar.vu
 import SmartRedirector from './components/Punto2/Punto2-3/SmartRedirector.vue';
 import ProximityDetector from './components/Punto3/Punto3-3/ProximityDetector.vue';
 import CopyToClipboard from './components/Punto3/Punto3-4/CopyToClipboard.vue';
+import UnsavedChangesForm from './components/Punto4/Punto4-3/UnsavedChangesForm.vue';
+import InfiniteScrollList from './components/Punto4/Punto4-4/InfiniteScrollList.vue';
+import FullscreenWrapper from './components/Punto5/Punto5-2/FullscreenWrapper.vue';
 </script>
 
 <template>
@@ -15,6 +18,9 @@ import CopyToClipboard from './components/Punto3/Punto3-4/CopyToClipboard.vue';
     <SmartRedirector />
     <ProximityDetector />
     <CopyToClipboard textToCopy="kirby" />
+    <UnsavedChangesForm />
+    <InfiniteScrollList />
+    <FullscreenWrapper />
 
   </main>
 </template>
