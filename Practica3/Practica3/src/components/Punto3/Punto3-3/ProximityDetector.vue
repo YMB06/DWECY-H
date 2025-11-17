@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useGeolocation } from './useGeolocation';
+import { useGeolocation } from '../../../composables/useGeolocation';
 import { friends } from '@/data/mockFriends';
 import { calculateDistance } from '@/utils/distanceCalculator';
 
