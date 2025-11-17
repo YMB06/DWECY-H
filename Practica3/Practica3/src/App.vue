@@ -6,6 +6,9 @@ import CopyToClipboard from './components/Punto3/Punto3-4/CopyToClipboard.vue';
 import UnsavedChangesForm from './components/Punto4/Punto4-3/UnsavedChangesForm.vue';
 import InfiniteScrollList from './components/Punto4/Punto4-4/InfiniteScrollList.vue';
 import FullscreenWrapper from './components/Punto5/Punto5-2/FullscreenWrapper.vue';
+import PopupWindowManager from './components/Punto6/Punto6-1/PopupWindowManager.vue';
+import CountdownTimer from './components/Punto7/Punto7-3/CountdownTimer.vue';
+import CalendarEvent from './components/Punto7/Punto7-4/calendarEvent.vue';
 </script>
 
 <template>
@@ -21,6 +24,9 @@ import FullscreenWrapper from './components/Punto5/Punto5-2/FullscreenWrapper.vu
     <UnsavedChangesForm />
     <InfiniteScrollList />
     <FullscreenWrapper />
+    <PopupWindowManager />
+    <CountdownTimer :targetDate="new Date('2025-12-31T23:59:59')" />
+    <CalendarEvent />
 
   </main>
 </template>
