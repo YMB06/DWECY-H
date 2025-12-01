@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import WindowSizeDisplay from './components/Punto1/Punto1-1/WindowSizeDisplay.vue';
+import ScrollToTopButton from './components/Punto1/Punto1-2/ScrollToTopButton.vue';
 import ScrollProgressBar from './components/Punto1/Punto1-3/ScrollProgressBar.vue'
 import SmartRedirector from './components/Punto2/Punto2-3/SmartRedirector.vue';
 import ProximityDetector from './components/Punto3/Punto3-3/ProximityDetector.vue';
@@ -19,6 +20,7 @@ import CalendarEvent from './components/Punto7/Punto7-4/calendarEvent.vue';
 
   <main>
     <WindowSizeDisplay />
+    <ScrollToTopButton />
     <ScrollProgressBar />
     <SmartRedirector />
     <ProximityDetector />
