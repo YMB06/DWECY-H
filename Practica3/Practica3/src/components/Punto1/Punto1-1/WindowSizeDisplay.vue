@@ -23,19 +23,21 @@ const { width, height } = useWindowSize();
 }
 
 .dimensions {
-  background: #f5f5f5;
-  border: 2px solid #ddd;
+  background: var(--color-background-soft);
+  border: 2px solid var(--color-border);
   border-radius: 8px;
   padding: 20px;
   margin: 20px 0;
   font-size: 1.2rem;
   font-weight: bold;
+  color: var(--color-heading);
 }
 
 .info {
   margin-top: 10px;
-  color: #666;
+  color: var(--color-text);
   font-size: 0.9rem;
   font-weight: normal;
+  opacity: 0.8;
 }
 </style>

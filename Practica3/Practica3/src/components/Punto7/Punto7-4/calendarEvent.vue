@@ -98,28 +98,30 @@ const calendarGrid = computed((): CalendarDay[] => {
 }
 
 .day-header {
-  background: #f5f5f5;
+  background: var(--color-background-soft);
   padding: 10px;
   text-align: center;
   font-weight: bold;
+  color: var(--color-heading);
 }
 
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 1px;
-  background: #ddd;
+  background: var(--color-border);
 }
 
 .calendar-cell {
-  background: white;
+  background: var(--color-background);
   min-height: 100px;
   padding: 5px;
   position: relative;
+  color: var(--color-text);
 }
 
 .is-not-current-month {
-  background: #f9f9f9;
+  background: var(--color-background-mute);
   opacity: 0.6;
 }
 

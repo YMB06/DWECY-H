@@ -50,6 +50,31 @@
   }
 }
 
+/* Dark mode for buttons and inputs */
+@media (prefers-color-scheme: dark) {
+  button {
+    background: var(--color-background-soft);
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+  
+  button:hover {
+    background: var(--color-background-mute);
+  }
+  
+  input, textarea, select {
+    background: var(--color-background-soft);
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+  
+  .output {
+    background: var(--color-background-soft);
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+}
+
 *,
 *::before,
 *::after {

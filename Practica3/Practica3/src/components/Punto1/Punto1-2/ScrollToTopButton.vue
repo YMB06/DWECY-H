@@ -41,16 +41,18 @@ onUnmounted(() => {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #007bff;
-  color: white;
-  border: none;
+  background: var(--color-heading, #007bff);
+  color: var(--color-background, white);
+  border: 1px solid var(--color-border, transparent);
   font-size: 20px;
   cursor: pointer;
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   z-index: 1000;
+  transition: all 0.3s ease;
 }
 
 .scroll-to-top:hover {
-  background: #0056b3;
+  background: var(--color-text, #0056b3);
+  transform: translateY(-2px);
 }
 </style>
