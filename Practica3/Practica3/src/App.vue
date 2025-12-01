@@ -16,6 +16,7 @@ import InfiniteScrollList from './components/Punto4/Punto4-4/InfiniteScrollList.
 import DropdownMenu from './components/Punto5/Punto5-1/DropdownMenu.vue';
 import FullscreenWrapper from './components/Punto5/Punto5-2/FullscreenWrapper.vue';
 import PopupWindowManager from './components/Punto6/Punto6-1/PopupWindowManager.vue';
+import SearchFilter from './components/Punto7/Punto7-1/SearchFilter.vue';
 import CountdownTimer from './components/Punto7/Punto7-3/CountdownTimer.vue';
 import CalendarEvent from './components/Punto7/Punto7-4/calendarEvent.vue';
 </script>
@@ -43,6 +44,7 @@ import CalendarEvent from './components/Punto7/Punto7-4/calendarEvent.vue';
     <DropdownMenu />
     <FullscreenWrapper />
     <PopupWindowManager />
+    <SearchFilter />
     <CountdownTimer :targetDate="new Date('2025-12-31T23:59:59')" />
     <CalendarEvent />
 
