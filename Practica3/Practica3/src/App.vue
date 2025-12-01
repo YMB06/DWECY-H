@@ -13,6 +13,7 @@ import HistoryControls from './components/Punto4/Punto4-1/HistoryControls.vue';
 import TabNavigator from './components/Punto4/Punto4-2/TabNavigator.vue';
 import UnsavedChangesForm from './components/Punto4/Punto4-3/UnsavedChangesForm.vue';
 import InfiniteScrollList from './components/Punto4/Punto4-4/InfiniteScrollList.vue';
+import DropdownMenu from './components/Punto5/Punto5-1/DropdownMenu.vue';
 import FullscreenWrapper from './components/Punto5/Punto5-2/FullscreenWrapper.vue';
 import PopupWindowManager from './components/Punto6/Punto6-1/PopupWindowManager.vue';
 import CountdownTimer from './components/Punto7/Punto7-3/CountdownTimer.vue';
@@ -39,6 +40,7 @@ import CalendarEvent from './components/Punto7/Punto7-4/calendarEvent.vue';
     <TabNavigator />
     <UnsavedChangesForm />
     <InfiniteScrollList />
+    <DropdownMenu />
     <FullscreenWrapper />
     <PopupWindowManager />
     <CountdownTimer :targetDate="new Date('2025-12-31T23:59:59')" />
