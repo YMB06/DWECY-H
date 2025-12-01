@@ -2,12 +2,12 @@
   <div class="dropdown-container">
     <h2>Detector de Clics Fuera</h2>
     
-    <div class="dropdown">
+    <div ref="menuRef" class="dropdown">
       <button @click="toggleMenu" class="dropdown-btn">
         {{ isOpen ? 'Cerrar Menú' : 'Abrir Menú' }} ▼
       </button>
       
-      <div ref="menuRef" v-if="isOpen" class="dropdown-menu">
+      <div v-if="isOpen" class="dropdown-menu">
         <div class="menu-item">Opción 1</div>
         <div class="menu-item">Opción 2</div>
         <div class="menu-item">Opción 3</div>
@@ -18,6 +18,8 @@
     <p class="info">
       Haz clic en el botón para abrir el menú, luego haz clic fuera para cerrarlo
     </p>
+    
+
   </div>
 </template>
 
@@ -77,6 +79,7 @@ useClickOutside(menuRef, () => {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   z-index: 1000;
   animation: fadeIn 0.2s ease;
+  min-width: 200px;
 }
 
 .menu-item {
@@ -84,6 +87,11 @@ useClickOutside(menuRef, () => {
   color: var(--color-text);
   cursor: pointer;
   transition: background 0.2s ease;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.menu-item:last-child {
+  border-bottom: none;
 }
 
 .menu-item:hover {
@@ -103,6 +111,13 @@ useClickOutside(menuRef, () => {
   font-size: 0.9rem;
   opacity: 0.8;
   margin-top: 20px;
+}
+
+.debug {
+  color: #28a745;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
 @keyframes fadeIn {

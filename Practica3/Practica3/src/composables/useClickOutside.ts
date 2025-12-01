@@ -8,7 +8,10 @@ export function useClickOutside(element: Ref<HTMLElement | null>, callback: () =
   }
 
   onMounted(() => {
-    document.addEventListener('click', handleClick);
+    // Add delay to avoid immediate triggering
+    setTimeout(() => {
+      document.addEventListener('click', handleClick);
+    }, 0);
   });
 
   onUnmounted(() => {
