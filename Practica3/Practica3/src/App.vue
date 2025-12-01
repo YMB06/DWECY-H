@@ -6,6 +6,7 @@ import UrlInspector from './components/Punto2/Punto2-1/UrlInspector.vue';
 import NavigationTools from './components/Punto2/Punto2-2/NavigationTools.vue';
 import SmartRedirector from './components/Punto2/Punto2-3/SmartRedirector.vue';
 import BrowserInfo from './components/Punto3/Punto3-1/BrowserInfo.vue';
+import OnlineStatusIndicator from './components/Punto3/Punto3-2/OnlineStatusIndicator.vue';
 import ProximityDetector from './components/Punto3/Punto3-3/ProximityDetector.vue';
 import CopyToClipboard from './components/Punto3/Punto3-4/CopyToClipboard.vue';
 import UnsavedChangesForm from './components/Punto4/Punto4-3/UnsavedChangesForm.vue';
@@ -29,6 +30,7 @@ import CalendarEvent from './components/Punto7/Punto7-4/calendarEvent.vue';
     <NavigationTools />
     <SmartRedirector />
     <BrowserInfo />
+    <OnlineStatusIndicator />
     <ProximityDetector />
     <CopyToClipboard textToCopy="kirby" />
     <UnsavedChangesForm />
