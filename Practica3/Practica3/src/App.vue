@@ -10,6 +10,7 @@ import OnlineStatusIndicator from './components/Punto3/Punto3-2/OnlineStatusIndi
 import ProximityDetector from './components/Punto3/Punto3-3/ProximityDetector.vue';
 import CopyToClipboard from './components/Punto3/Punto3-4/CopyToClipboard.vue';
 import HistoryControls from './components/Punto4/Punto4-1/HistoryControls.vue';
+import TabNavigator from './components/Punto4/Punto4-2/TabNavigator.vue';
 import UnsavedChangesForm from './components/Punto4/Punto4-3/UnsavedChangesForm.vue';
 import InfiniteScrollList from './components/Punto4/Punto4-4/InfiniteScrollList.vue';
 import FullscreenWrapper from './components/Punto5/Punto5-2/FullscreenWrapper.vue';
@@ -35,6 +36,7 @@ import CalendarEvent from './components/Punto7/Punto7-4/calendarEvent.vue';
     <ProximityDetector />
     <CopyToClipboard textToCopy="kirby" />
     <HistoryControls />
+    <TabNavigator />
     <UnsavedChangesForm />
     <InfiniteScrollList />
     <FullscreenWrapper />
