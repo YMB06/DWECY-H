@@ -19,6 +19,7 @@ import PopupWindowManager from './components/Punto6/Punto6-1/PopupWindowManager.
 import SearchFilter from './components/Punto7/Punto7-1/SearchFilter.vue';
 import ProductPrice from './components/Punto7/Punto7-2/ProductPrice.vue';
 import CountdownTimer from './components/Punto7/Punto7-3/CountdownTimer.vue';
+import ProductosManager from './components/Punto7/Punto7-5/ProductosManager.vue';
 import CalendarEvent from './components/Punto7/Punto7-4/calendarEvent.vue';
 </script>
 
@@ -48,6 +49,7 @@ import CalendarEvent from './components/Punto7/Punto7-4/calendarEvent.vue';
     <SearchFilter />
     <ProductPrice />
     <CountdownTimer :targetDate="new Date('2025-12-31T23:59:59')" />
+    <ProductosManager />
     <CalendarEvent />
 
   </main>
