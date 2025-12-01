@@ -32,7 +32,7 @@ interface Item {
 }
 
 interface Props {
-  items: Item[];
+  items?: Item[];
 }
 
 const props = withDefaults(defineProps<Props>(), {
