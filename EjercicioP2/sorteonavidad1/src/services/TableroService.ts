@@ -109,12 +109,12 @@ export class Tablero {
 }
 
 /**
- * Instancia singleton que usa la app.
+ * Instancia que usa la app.
  */
 const tableroInstance = new Tablero(100);
 
 /**
- * Wrappers compatibilidad con la API previa (devuelven boolean para componentes existentes)
+ *  api de funciones para uso externo.
  */
 export function reservarNumero(numero: number, participante: string): boolean {
   try {

@@ -8,6 +8,7 @@ export default {
     
     const estadisticas = computed(() => obtenerEstadisticas());
 
+    // Funcion para consultar los numeros reservados por un participante usando su email
     function consultarNumeros() {
       if (!emailConsulta.value) return;
       numerosParticipante.value = obtenerNumerosPorParticipante(emailConsulta.value);

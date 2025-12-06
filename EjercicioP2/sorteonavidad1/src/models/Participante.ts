@@ -79,7 +79,7 @@ export class Participante implements IParticipante {
   }
 
   /**
-   * Devuelve una representacion plana (POJO) util para persistencia/serializacion.
+   * Devuelve una representacion plana util para persistencia/serializacion.
    */
   toJSON(): IParticipante {
     return {
