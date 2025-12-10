@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import AppConfigDemo from './components/4-4/AppConfigDemo.vue'
+import CinemaDemo from './components/4-2/CinemaDemo.vue'
 </script>
 
 <template>
-  <AppConfigDemo />
+  <CinemaDemo />
 </template>
 
 <style>
