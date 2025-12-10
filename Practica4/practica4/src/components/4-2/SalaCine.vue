@@ -134,6 +134,12 @@ function confirmarReserva() {
   font-family: Arial, sans-serif;
 }
 
+.sala-cine h1 {
+  color: #2c3e50;
+  text-align: center;
+  font-weight: 600;
+}
+
 .pantalla {
   background: #333;
   color: white;
@@ -212,10 +218,19 @@ function confirmarReserva() {
 }
 
 .resumen {
-  background: #f9f9f9;
+  background: white;
   padding: 20px;
   border-radius: 8px;
   margin: 30px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.resumen p {
+  color: #2c3e50;
+  font-weight: 600;
+  margin: 8px 0;
+  font-size: 16px;
 }
 
 .btn-confirmar {
@@ -240,12 +255,23 @@ function confirmarReserva() {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border: 1px solid #e0e0e0;
 }
 
 .leyenda-item {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.leyenda-item span {
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .butaca-ejemplo {
