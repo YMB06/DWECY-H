@@ -25,9 +25,10 @@ export interface IAppSettings {
 ### getInstance(): AppConfig
 Método estático que devuelve la única instancia de la clase.
 
-```ts
-const config = AppConfig.getInstance();
-```
+  ```markdown
+   ```ts
+   const config = AppConfig.getInstance();
+
 
 ### getSettings(): DeepReadonly<Ref<IAppSettings>>
 Devuelve una versión reactiva y de solo lectura de la configuración.
