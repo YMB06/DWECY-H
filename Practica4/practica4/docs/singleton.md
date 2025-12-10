@@ -11,12 +11,12 @@ El patrón Singleton se eligió para la configuración de la aplicación para ga
 
 ## Interfaz IAppSettings
 
-```typescript
+```ts
 export interface IAppSettings {
-  theme: 'light' | 'dark';
-  language: 'es' | 'en' | 'fr';
-  fontSize: 'small' | 'medium' | 'large';
-  fontFamily: 'Arial' | 'Verdana' | 'Georgia';
+  theme: 'light' | 'dark'
+  language: 'es' | 'en' | 'fr'
+  fontSize: 'small' | 'medium' | 'large'
+  fontFamily: 'Arial' | 'Verdana' | 'Georgia'
 }
 ```
 
@@ -25,95 +25,72 @@ export interface IAppSettings {
 ### getInstance(): AppConfig
 Método estático que devuelve la única instancia de la clase.
 
-```typescript
+```ts
 const config = AppConfig.getInstance();
 ```
 
 ### getSettings(): DeepReadonly<Ref<IAppSettings>>
 Devuelve una versión reactiva y de solo lectura de la configuración.
 
-```typescript
-const settings = config.getSettings();
-console.log(settings.value.theme); // 'light'
+```ts
+const settings = config.getSettings()
+console.log(settings.value.theme) // 'light'
 ```
 
 ### setTheme(theme: 'light' | 'dark'): void
 Cambia el tema de la aplicación.
 
-```typescript
-config.setTheme('dark');
+```ts
+config.setTheme('dark')
 ```
 
 ### setLanguage(lang: 'es' | 'en' | 'fr'): void
 Cambia el idioma de la aplicación.
 
-```typescript
-config.setLanguage('en');
+```ts
+config.setLanguage('en')
 ```
 
 ### setFontSize(size: 'small' | 'medium' | 'large'): void
 Cambia el tamaño de fuente.
 
-```typescript
-config.setFontSize('large');
+```ts
+config.setFontSize('large')
 ```
 
 ### setFontFamily(family: 'Arial' | 'Verdana' | 'Georgia'): void
 Cambia la familia de fuente.
 
-```typescript
-config.setFontFamily('Arial');
+```ts
+config.setFontFamily('Arial')
 ```
 
 ## Guía de Uso
 
 ### Leer la Configuración
 
-```typescript
-<script setup lang="ts">
-import { AppConfig } from '@/services/AppConfig';
-import { computed } from 'vue';
-
-const settings = AppConfig.getInstance().getSettings();
+```ts
+const settings = AppConfig.getInstance().getSettings()
 
 const themeClass = computed(() => {
-  return settings.value.theme === 'dark' ? 'dark-theme' : 'light-theme';
-});
-</script>
-
-<template>
-  <div :class="themeClass">
-    <p>Tema actual: {{ settings.theme }}</p>
-  </div>
-</template>
+  return settings.value.theme === 'dark' ? 'dark-theme' : 'light-theme'
+})
 ```
 
 ### Modificar la Configuración
 
-```typescript
-<script setup lang="ts">
-import { AppConfig } from '@/services/AppConfig';
-
-const configService = AppConfig.getInstance();
+```ts
+const configService = AppConfig.getInstance()
 
 function cambiarTema() {
-  const currentTheme = configService.getSettings().value.theme;
-  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-  configService.setTheme(newTheme);
+  const currentTheme = configService.getSettings().value.theme
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light'
+  configService.setTheme(newTheme)
 }
 
 function cambiarIdioma(idioma: 'es' | 'en' | 'fr') {
-  configService.setLanguage(idioma);
+  configService.setLanguage(idioma)
 }
-</script>
-
-<template>
-  <div>
-    <button @click="cambiarTema">Cambiar Tema</button>
-    <button @click="cambiarIdioma('en')">English</button>
-    <button @click="cambiarIdioma('es')">Español</button>
-  </div>
-</template>
 ```
 
 ## Características

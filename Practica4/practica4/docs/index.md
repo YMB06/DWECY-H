@@ -7,7 +7,7 @@
 - **TypeScript** - Tipado estático
 - **Vite** - Herramienta de construcción
 - **Vitest** - Framework de testing
-- **VuePress** - Documentación
+- **VitePress** - Documentación
 
 ### Comandos Disponibles
 
@@ -32,11 +32,11 @@ npm run type-check   # Verificación TypeScript
 
 ## Ejercicios Implementados
 
-### [4-1: Juego de Cartas](/4-1/juego-cartas/)
+### 4-1: Juego de Cartas
 Implementación de "El Último Descarte" usando estructura de datos Pila genérica.
 
-### [4-3: Gestor de Horarios](/4-3/components/)
+### 4-3: Gestor de Horarios
 Sistema de gestión de horarios con patrón Singleton y operaciones CRUD.
 
-### [4-4: Patrón Singleton](/4-4/)
+### 4-4: Patrón Singleton
 Gestor de configuración global con patrón Singleton y reactividad.
