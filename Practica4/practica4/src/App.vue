@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import CinemaDemo from './components/4-2/CinemaDemo.vue'
+import NotificationComposer from './components/4-2/NotificationComposer.vue'
 </script>
 
 <template>
-  <CinemaDemo />
+  <NotificationComposer />
 </template>
 
 <style>

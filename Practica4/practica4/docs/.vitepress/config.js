@@ -8,6 +8,8 @@ export default defineConfig({
     nav: [
       { text: 'Inicio', link: '/' },
       { text: 'Juego Cartas', link: '/pila' },
+      { text: 'Sala Cine', link: '/sala-cine' },
+      { text: 'Notificaciones', link: '/patron-factoria' },
       { text: 'Horarios', link: '/gestor-horarios' },
       { text: 'Singleton', link: '/singleton' }
     ],
@@ -21,6 +23,18 @@ export default defineConfig({
           { text: 'Composable useJuego', link: '/use-juego' },
           { text: 'Componente JuegoCartas', link: '/juego-cartas' },
           { text: 'Flujo del Juego', link: '/flujo-juego' }
+        ]
+      },
+      {
+        text: 'Gestor de Sala de Cine (4-2)',
+        items: [
+          { text: 'SalaCine', link: '/sala-cine' }
+        ]
+      },
+      {
+        text: 'Sistema de Notificaciones (4-2)',
+        items: [
+          { text: 'Patrón Factoría', link: '/patron-factoria' }
         ]
       },
       {
