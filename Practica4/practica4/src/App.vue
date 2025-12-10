@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import GestorHorarios from './components/4-3/GestorHorarios.vue'
+import AppConfigDemo from './components/4-4/AppConfigDemo.vue'
 </script>
 
 <template>
-  <GestorHorarios />
+  <AppConfigDemo />
 </template>
 
 <style>
