@@ -1,4 +1,4 @@
-import type { Palo, Valor } from '@/types/cards';
+import type { Palo, Valor } from '@/types/4-1/cards';
 
 export class Carta {
   constructor(public palo: Palo, public valor: Valor) {}

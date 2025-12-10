@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { useJuego } from '@/composables/useJuego';
+import { useJuego } from '@/composables/4-1/useJuego';
 
 const {
   iniciarJuego,

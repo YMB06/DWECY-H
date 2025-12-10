@@ -1,5 +1,5 @@
 import { ref, readonly, computed } from 'vue';
-import { Pila, Carta, type Palo, type Valor } from '@/core';
+import { Pila, Carta, type Palo, type Valor } from '@/core/4-1';
 
 export function useJuego() {
   const mazo = ref(new Pila<Carta>());
