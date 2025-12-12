@@ -10,6 +10,7 @@ const props = defineProps({
 });
 
 const sala = ref<IButaca[][]>(inicializarSala());
+const filtroActivo = ref<EstadoButaca | null>(null);
 
 function inicializarSala(): IButaca[][] {
   const matriz: IButaca[][] = [];
@@ -69,6 +70,21 @@ function confirmarReserva() {
     });
   });
 }
+
+function filtrarPorEstado(estado: EstadoButaca) {
+  filtroActivo.value = filtroActivo.value === estado ? null : estado;
+}
+
+const salaFiltrada = computed(() => {
+  if (!filtroActivo.value) return sala.value;
+  
+  return sala.value.map(fila => 
+    fila.map(butaca => ({
+      ...butaca,
+      visible: butaca.estado === filtroActivo.value
+    }))
+  );
+});
 </script>
 
 <template>
@@ -78,13 +94,13 @@ function confirmarReserva() {
     <div class="pantalla">PANTALLA</div>
     
     <div class="sala-grid">
-      <div v-for="(fila, indexFila) in sala" :key="indexFila" class="fila">
+      <div v-for="(fila, indexFila) in salaFiltrada" :key="indexFila" class="fila">
         <div class="numero-fila">{{ indexFila + 1 }}</div>
         <div 
           v-for="butaca in fila" 
           :key="butaca.id"
           class="butaca"
-          :class="butaca.estado"
+          :class="[butaca.estado, { 'filtered-out': filtroActivo && butaca.estado !== filtroActivo }]"
           @click="seleccionarButaca(butaca)"
         >
           {{ butaca.columna + 1 }}
@@ -106,19 +122,35 @@ function confirmarReserva() {
     </div>
 
     <div class="leyenda">
-      <div class="leyenda-item">
+      <div 
+        class="leyenda-item" 
+        :class="{ active: filtroActivo === EstadoButaca.DISPONIBLE }"
+        @click="filtrarPorEstado(EstadoButaca.DISPONIBLE)"
+      >
         <div class="butaca-ejemplo disponible"></div>
         <span>Disponible</span>
       </div>
-      <div class="leyenda-item">
+      <div 
+        class="leyenda-item" 
+        :class="{ active: filtroActivo === EstadoButaca.SELECCIONADO }"
+        @click="filtrarPorEstado(EstadoButaca.SELECCIONADO)"
+      >
         <div class="butaca-ejemplo seleccionado"></div>
         <span>Seleccionado</span>
       </div>
-      <div class="leyenda-item">
+      <div 
+        class="leyenda-item" 
+        :class="{ active: filtroActivo === EstadoButaca.OCUPADO }"
+        @click="filtrarPorEstado(EstadoButaca.OCUPADO)"
+      >
         <div class="butaca-ejemplo ocupado"></div>
         <span>Ocupado</span>
       </div>
-      <div class="leyenda-item">
+      <div 
+        class="leyenda-item" 
+        :class="{ active: filtroActivo === EstadoButaca.DAÑADO }"
+        @click="filtrarPorEstado(EstadoButaca.DAÑADO)"
+      >
         <div class="butaca-ejemplo dañado"></div>
         <span>Dañado</span>
       </div>
@@ -217,6 +249,11 @@ function confirmarReserva() {
   opacity: 0.6;
 }
 
+.butaca.filtered-out {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 .resumen {
   background: white;
   padding: 20px;
@@ -266,6 +303,20 @@ function confirmarReserva() {
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.leyenda-item:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.leyenda-item.active {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
 }
 
 .leyenda-item span {
