@@ -72,17 +72,7 @@ const changeFontFamily = (event: Event) => {
   border: 1px solid #ccc;
   border-radius: 8px;
   background: var(--bg-color, white);
-  color: var(--text-color, #2c3e50);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.panel h3 {
-  color: #2c3e50;
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: 1.5em;
+  color: var(--text-color, black);
 }
 
 .control-group {
@@ -95,22 +85,13 @@ const changeFontFamily = (event: Event) => {
 label {
   min-width: 120px;
   font-weight: bold;
-  color: #2c3e50;
 }
 
 select {
-  padding: 8px 12px;
-  border: 2px solid #bdc3c7;
-  border-radius: 6px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   background: var(--input-bg, white);
-  color: var(--input-text, #2c3e50);
-  font-size: 14px;
-  cursor: pointer;
-  transition: border-color 0.3s ease;
-}
-
-select:focus {
-  outline: none;
-  border-color: #3498db;
+  color: var(--input-text, black);
 }
 </style>
