@@ -1,4 +1,4 @@
-import { ref, readonly, type DeepReadonly, type Ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import type { IAppSettings } from '@/types/4-4/config';
 
 export class AppConfig {
@@ -24,8 +24,8 @@ export class AppConfig {
     return AppConfig.instance;
   }
 
-  public getSettings(): DeepReadonly<Ref<IAppSettings>> {
-    return readonly(this._settings);
+  public getSettings(): Ref<IAppSettings> {
+    return this._settings;
   }
 
   public setTheme(theme: IAppSettings['theme']): void {

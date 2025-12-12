@@ -5,7 +5,7 @@ import JuegoCartas from './components/4-1/JuegoCartas.vue'
 import CinemaDemo from './components/4-2/CinemaDemo.vue'
 import NotificationComposer from './components/4-2/NotificationComposer.vue'
 import GestorHorarios from './components/4-3/GestorHorarios.vue'
-import PanelDeControl from './components/4-4/PanelDeControl.vue'
+import AppConfigDemo from './components/4-4/AppConfigDemo.vue'
 
 const currentExercise = ref('4-2-notifications')
 
@@ -25,7 +25,7 @@ function selectExercise(exerciseId: string) {
     <CinemaDemo v-else-if="currentExercise === '4-2-cinema'" />
     <NotificationComposer v-else-if="currentExercise === '4-2-notifications'" />
     <GestorHorarios v-else-if="currentExercise === '4-3'" />
-    <PanelDeControl v-else-if="currentExercise === '4-4'" />
+    <AppConfigDemo v-else-if="currentExercise === '4-4'" />
   </div>
 </template>
 
