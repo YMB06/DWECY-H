@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { useWindowSize } from '../useWindowSize';
+import { useWindowSize } from '../../composables/useWindowSize';
 
 describe('useWindowSize', () => {
   beforeEach(() => {

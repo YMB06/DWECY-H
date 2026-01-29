@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { useOnlineStatus } from '../useOnlineStatus';
+import { useOnlineStatus } from '../../composables/useOnlineStatus';
 
 describe('useOnlineStatus', () => {
   it('estado inicial online', () => {
