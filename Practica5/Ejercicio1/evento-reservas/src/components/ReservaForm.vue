@@ -448,4 +448,12 @@ onMounted(() => {
     Object.assign(formData.value, draft)
   }
 })
+
+// Expose properties for testing
+defineExpose({
+  formData,
+  isFormValid,
+  errors,
+  showSuccess
+})
 </script>

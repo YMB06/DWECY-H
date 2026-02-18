@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { mount, VueWrapper } from '@vue/test-utils'
 import ReservaForm from '@/components/ReservaForm.vue'
+import type { ComponentPublicInstance } from 'vue'
 
 // Mock localStorage
 const localStorageMock = {
@@ -11,7 +12,7 @@ const localStorageMock = {
 vi.stubGlobal('localStorage', localStorageMock)
 
 describe('Integration Tests', () => {
-  let wrapper: any
+  let wrapper: VueWrapper<ComponentPublicInstance>
 
   beforeEach(() => {
     vi.clearAllMocks()
@@ -35,16 +36,20 @@ describe('Integration Tests', () => {
       await wrapper.find('#numeroAsistentes').setValue(150)
 
       // Fill additional services
-      await wrapper.find('#serviciosCatering-vegetariano').setChecked(true)
-      await wrapper.find('#serviciosCatering-barraLibre').setChecked(true)
-      await wrapper.find('#presupuesto-premium').setChecked(true)
+      const vegetarianoCheckbox = wrapper.find('#serviciosCatering-vegetariano')
+      await vegetarianoCheckbox.setValue(true)
+      const barraLibreCheckbox = wrapper.find('#serviciosCatering-barraLibre')
+      await barraLibreCheckbox.setValue(true)
+      const premiumRadio = wrapper.find('#presupuesto-premium')
+      await premiumRadio.setValue(true)
       await wrapper.find('#comentarios').setValue('Boda en jardín exterior')
-      await wrapper.find('#aceptaTerminos').setChecked(true)
+      const terminosCheckbox = wrapper.find('#aceptaTerminos')
+      await terminosCheckbox.setValue(true)
 
       await wrapper.vm.$nextTick()
 
       // Verify form is valid
-      expect(wrapper.vm.isFormValid).toBe(true)
+      expect((wrapper.vm as any).isFormValid).toBe(true)
       expect(wrapper.find('.submit-btn').attributes('disabled')).toBeUndefined()
 
       // Submit form
@@ -80,7 +85,7 @@ describe('Integration Tests', () => {
       expect(wrapper.find('#email-error').exists()).toBe(true)
 
       // Verify form is invalid
-      expect(wrapper.vm.isFormValid).toBe(false)
+      expect((wrapper.vm as any).isFormValid).toBe(false)
       expect(wrapper.find('.submit-btn').attributes('disabled')).toBeDefined()
 
       // Try to submit
@@ -139,8 +144,8 @@ describe('Integration Tests', () => {
       localStorageMock.getItem.mockReturnValue(JSON.stringify(mockDraft))
 
       const newWrapper = mount(ReservaForm)
-      expect(newWrapper.vm.formData.nombreCompleto).toBe('Saved User')
-      expect(newWrapper.vm.formData.email).toBe('saved@example.com')
+      expect((newWrapper.vm as any).formData.nombreCompleto).toBe('Saved User')
+      expect((newWrapper.vm as any).formData.email).toBe('saved@example.com')
     })
 
     it('should clear draft on form reset', async () => {
@@ -148,7 +153,7 @@ describe('Integration Tests', () => {
       await wrapper.find('.reset-btn').trigger('click')
 
       expect(localStorageMock.removeItem).toHaveBeenCalledWith('reserva-form-draft')
-      expect(wrapper.vm.formData.nombreCompleto).toBe('')
+      expect((wrapper.vm as any).formData.nombreCompleto).toBe('')
     })
   })
 
@@ -158,10 +163,10 @@ describe('Integration Tests', () => {
       const rangeInput = wrapper.find('#numeroAsistentesRange')
 
       await numberInput.setValue(200)
-      expect(wrapper.vm.formData.numeroAsistentes).toBe(200)
+      expect((wrapper.vm as any).formData.numeroAsistentes).toBe(200)
 
       await rangeInput.setValue(300)
-      expect(wrapper.vm.formData.numeroAsistentes).toBe(300)
+      expect((wrapper.vm as any).formData.numeroAsistentes).toBe(300)
     })
 
     it('should validate number range correctly', async () => {
