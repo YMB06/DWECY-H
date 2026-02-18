@@ -119,11 +119,9 @@ const handleSubmit = () => {
   })
 
   if (success) {
-    alert('¡Reserva confirmada!')
     store.selectTable(null)
     emit('submit', true)
   } else {
-    alert('Error al crear la reserva')
     emit('submit', false)
   }
 }

@@ -18,6 +18,7 @@ Sistema de reservas para restaurante con gestión de estado global usando Pinia,
 - **Build**: Vite
 - **Estado**: Pinia
 - **Tests**: Vitest
+- **Docs**: VuePress
 - **Estilos**: CSS Scoped
 
 ## 📁 Estructura del Proyecto
@@ -29,13 +30,17 @@ src/
 ├── stores/
 │   ├── restaurant.ts         # Store de Pinia
 │   └── __tests__/
-│       └── restaurant.spec.ts
+│       ├── restaurant.spec.ts
+│       └── testA-overbooking.spec.ts
 ├── components/
 │   ├── TimeSlotSelector.vue  # Selector de horarios
 │   ├── Table.vue             # Componente mesa individual
 │   ├── TableMap.vue          # Mapa de mesas
 │   ├── ReservationForm.vue   # Formulario de reserva
-│   └── RestaurantLayout.vue  # Layout principal
+│   ├── RestaurantLayout.vue  # Layout principal
+│   └── __tests__/
+│       ├── testB-table-events.spec.ts
+│       └── testC-form-validation.spec.ts
 ├── App.vue
 └── main.ts
 ```
@@ -57,6 +62,9 @@ npm run test:ui
 
 # Build producción
 npm run build
+
+# Documentación
+npm run docs:dev
 ```
 
 ## 🎨 Características
@@ -88,19 +96,47 @@ npm run build
 
 ## 🧪 Testing
 
-El proyecto incluye tests unitarios para el store:
+El proyecto incluye tests completos:
 
 ```bash
 npm run test
 ```
 
-Tests incluidos:
-- ✅ Inicialización de mesas
+### Tests Implementados:
+
+#### Test A: Lógica de Negocio (Pinia)
+- ✅ Prevención de overbooking
 - ✅ Verificación de disponibilidad
-- ✅ Creación de reservas
-- ✅ Prevención de doble reserva
 - ✅ Validación de capacidad
-- ✅ Cambio de franja horaria
+
+#### Test B: Visualización y Eventos (Table.vue)
+- ✅ Clases CSS correctas según estado
+- ✅ Aria-label descriptivos
+- ✅ Emisión de eventos click
+- ✅ Accesibilidad por teclado
+
+#### Test C: Validación de Formulario (ReservationForm.vue)
+- ✅ Validación de capacidad de mesa
+- ✅ Campos obligatorios
+- ✅ Formato de email
+- ✅ Prevención de envío con errores
+
+## 📚 Documentación
+
+La documentación completa está disponible en VuePress:
+
+```bash
+npm run docs:dev
+```
+
+Incluye:
+- **Cómo Usar**: Manual de usuario paso a paso
+- **Componentes**: Documentación técnica de Table y ReservationForm
+  - Props y tipos
+  - Eventos emitidos
+  - Ejemplos de uso
+  - Guías de accesibilidad
+- **Testing**: Guía completa de pruebas
 
 ## 📊 Arquitectura de Datos
 
@@ -160,3 +196,4 @@ El diseño es responsive y se adapta a diferentes tamaños de pantalla.
 - **TypeScript**: Tipado estricto
 - **Vitest**: Testing unitario
 - **A11y**: Accesibilidad web
+- **VuePress**: Documentación técnica
