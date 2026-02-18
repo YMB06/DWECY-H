@@ -21,6 +21,7 @@
 import { computed } from 'vue'
 import type { ReservaFormData } from '@/types/reservation'
 
+// Props del componente
 interface Props {
   formData: ReservaFormData
   hasErrors: boolean
@@ -28,6 +29,10 @@ interface Props {
 
 const props = defineProps<Props>()
 
+/**
+ * Verifica qué campos del formulario están completados correctamente
+ * Cada campo tiene su propia lógica de validación
+ */
 const fieldChecks = computed(() => {
   const checks = [
     { name: 'nombreCompleto', valid: props.formData.nombreCompleto.trim().length >= 3 },
@@ -46,14 +51,20 @@ const fieldChecks = computed(() => {
   return checks
 })
 
+// Cuenta cuántos campos están completados
 const completedFields = computed(() => {
   return fieldChecks.value.filter(check => check.valid).length
 })
 
+// Total de campos en el formulario
 const totalFields = computed(() => {
   return fieldChecks.value.length
 })
 
+/**
+ * Calcula el porcentaje de progreso del formulario
+ * Si hay errores, reduce el porcentaje en 10% como penalización visual
+ */
 const progressPercentage = computed(() => {
   if (totalFields.value === 0) return 0
   const percentage = Math.round((completedFields.value / totalFields.value) * 100)

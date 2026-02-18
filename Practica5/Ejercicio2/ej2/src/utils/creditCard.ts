@@ -1,23 +1,36 @@
+/**
+ * Valida números de tarjeta usando el algoritmo de Luhn
+ * Este algoritmo es el estándar de la industria para validar tarjetas de crédito
+ * @param cardNumber - Número de tarjeta (puede incluir espacios)
+ * @returns true si la tarjeta es válida según Luhn
+ */
 export function luhnCheck(cardNumber: string): boolean {
-  const digits = cardNumber.replace(/\s/g, '')
+  const digits = cardNumber.replace(/\s/g, '') // Eliminar espacios
   let sum = 0
   let isEven = false
 
+  // Recorrer dígitos de derecha a izquierda
   for (let i = digits.length - 1; i >= 0; i--) {
     let digit = parseInt(digits[i], 10)
 
     if (isEven) {
       digit *= 2
-      if (digit > 9) digit -= 9
+      if (digit > 9) digit -= 9 // Si es mayor que 9, restar 9
     }
 
     sum += digit
     isEven = !isEven
   }
 
-  return sum % 10 === 0
+  return sum % 10 === 0 // Válido si la suma es múltiplo de 10
 }
 
+/**
+ * Detecta el tipo de tarjeta basándose en los primeros dígitos
+ * - Visa: Empieza con 4
+ * - Mastercard: Empieza con 51-55
+ * - Amex: Empieza con 34 o 37
+ */
 export function detectCardType(cardNumber: string): string {
   const digits = cardNumber.replace(/\s/g, '')
 
@@ -28,12 +41,20 @@ export function detectCardType(cardNumber: string): string {
   return 'Unknown'
 }
 
+/**
+ * Formatea el número de tarjeta añadiendo espacios cada 4 dígitos
+ * Ejemplo: "1234567890123456" -> "1234 5678 9012 3456"
+ */
 export function formatCardNumber(value: string): string {
-  const digits = value.replace(/\D/g, '')
-  const groups = digits.match(/.{1,4}/g)
+  const digits = value.replace(/\D/g, '') // Solo dígitos
+  const groups = digits.match(/.{1,4}/g) // Grupos de 4
   return groups ? groups.join(' ') : digits
 }
 
+/**
+ * Valida que la fecha de expiración sea futura
+ * @param expiryDate - Fecha en formato MM/YY
+ */
 export function validateExpiryDate(expiryDate: string): boolean {
   const [month, year] = expiryDate.split('/')
   if (!month || !year) return false
@@ -49,6 +70,11 @@ export function validateExpiryDate(expiryDate: string): boolean {
   return expiry > now
 }
 
+/**
+ * Valida el CVV según el tipo de tarjeta
+ * - Visa/Mastercard: 3 dígitos
+ * - American Express: 4 dígitos
+ */
 export function validateCVV(cvv: string, cardNumber: string): boolean {
   const cardType = detectCardType(cardNumber)
   
