@@ -50,17 +50,21 @@ const handleTableClick = (tableId: number) => {
 h2 {
   text-align: center;
   margin-bottom: 1rem;
-  color: #2c3e50;
+  color: var(--color-text);
 }
 
 .map-container {
   position: relative;
-  width: 500px;
-  height: 350px;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 4 / 3;
   margin: 0 auto;
-  background: #f8f9fa;
+  background: var(--color-card);
   border: 2px solid #dee2e6;
   border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-image: radial-gradient(#e9ecef 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 .legend {

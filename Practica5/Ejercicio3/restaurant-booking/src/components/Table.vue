@@ -43,27 +43,28 @@ const handleClick = () => {
 <style scoped>
 .table {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  border-radius: 12px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
   border: 3px solid;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: transform 0.3s, background 0.3s;
   font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .table:focus {
-  outline: 4px solid #000;
+  outline: 4px solid var(--color-primary);
   outline-offset: 4px;
 }
 
 .table.available {
   background: #d4edda;
-  border-color: #28a745;
+  border-color: var(--color-primary);
   color: #155724;
 }
 
@@ -74,7 +75,7 @@ const handleClick = () => {
 
 .table.occupied {
   background: #f8d7da;
-  border-color: #dc3545;
+  border-color: var(--color-secondary);
   color: #721c24;
   cursor: not-allowed;
   opacity: 0.7;
@@ -82,17 +83,17 @@ const handleClick = () => {
 
 .table.selected {
   background: #cce5ff;
-  border-color: #007bff;
+  border-color: var(--color-primary);
   color: #004085;
   transform: scale(1.1);
 }
 
 .label {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
 }
 
 .capacity {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 </style>

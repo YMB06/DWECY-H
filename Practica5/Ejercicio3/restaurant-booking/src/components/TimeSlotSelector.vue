@@ -39,7 +39,7 @@ const selectSlot = (slot: TimeSlot) => {
 
 h2 {
   margin-bottom: 1rem;
-  color: #2c3e50;
+  color: var(--color-text);
 }
 
 .slots {
@@ -51,13 +51,13 @@ h2 {
 
 button {
   padding: 1rem 2rem;
-  border: 2px solid #42b983;
-  background: white;
+  border: 2px solid var(--color-primary);
+  background: var(--color-card);
   border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: transform 0.2s, background 0.2s;
 }
 
 button:hover {
@@ -66,12 +66,12 @@ button:hover {
 }
 
 button:focus {
-  outline: 3px solid #42b983;
+  outline: 3px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 button.active {
-  background: #42b983;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-text-light);
 }
 </style>

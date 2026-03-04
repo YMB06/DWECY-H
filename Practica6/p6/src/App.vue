@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import KanbanBoard from './components/kanban/KanbanBoard.vue'
+import DomHighlighter from './components/highlighter/DomHighlighter.vue'
 </script>
 
 <template>
   <div id="app">
-    <KanbanBoard />
+    <DomHighlighter />
   </div>
 </template>
 

@@ -16,6 +16,15 @@ import RestaurantLayout from './components/RestaurantLayout.vue'
 </script>
 
 <style>
+:root {
+  --color-primary: #42b983;
+  --color-secondary: #ff6b6b;
+  --color-bg: #f4f6f8;
+  --color-card: #ffffff;
+  --color-text: #2c3e50;
+  --color-text-light: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -23,9 +32,11 @@ import RestaurantLayout from './components/RestaurantLayout.vue'
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
+  background: var(--color-bg);
   min-height: 100vh;
+  color: var(--color-text);
 }
 
 #app {
@@ -38,7 +49,7 @@ header {
 }
 
 h1 {
-  color: white;
+  color: var(--color-primary);
   font-size: 2.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }

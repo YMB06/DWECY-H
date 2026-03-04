@@ -132,15 +132,15 @@ const handleSubmit = () => {
   max-width: 400px;
   margin: 0 auto;
   padding: 2rem;
-  background: white;
+  background: var(--color-card);
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #2c3e50;
+  color: var(--color-text);
 }
 
 .form-group {
@@ -151,7 +151,7 @@ label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: var(--color-text);
 }
 
 input {
@@ -164,16 +164,16 @@ input {
 
 input:focus {
   outline: none;
-  border-color: #42b983;
+  border-color: var(--color-primary);
 }
 
 input[aria-invalid="true"] {
-  border-color: #dc3545;
+  border-color: var(--color-secondary);
 }
 
 .error {
   display: block;
-  color: #dc3545;
+  color: var(--color-secondary);
   font-size: 0.875rem;
   margin-top: 0.25rem;
 }
@@ -188,14 +188,18 @@ small {
 .submit-btn {
   width: 100%;
   padding: 1rem;
-  background: #42b983;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-text-light);
   border: none;
   border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #369870; /* slightly darker primary */
 }
 
 .submit-btn:hover {
