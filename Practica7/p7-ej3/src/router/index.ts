@@ -10,9 +10,9 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/ej2',
-      name: 'ejercicio2',
-      component: () => import('../views/Ejercicio2View.vue'),
+      path: '/ej3',
+      name: 'ejercicio3',
+      component: () => import('../views/Ejercicio3View.vue'),
     },
   ],
 })

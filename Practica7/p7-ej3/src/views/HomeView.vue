@@ -7,17 +7,17 @@
 
     <div class="exercises">
       <div class="exercise-card">
-        <div class="exercise-icon">🤖</div>
-        <h2>Ejercicio 2</h2>
-        <h3>AI-UML Architect</h3>
-        <p>Generador de diagramas UML con Inteligencia Artificial.</p>
+        <div class="exercise-icon">🎮</div>
+        <h2>Ejercicio 3</h2>
+        <h3>SpriteSheet AI Forge</h3>
+        <p>Generador y animador de sprites con IA para videojuegos.</p>
         <ul>
-          <li>✅ API de IA (OpenAI/Groq)</li>
-          <li>✅ AbortController para cancelar</li>
-          <li>✅ Renderizado con Mermaid.js</li>
-          <li>✅ Exportación SVG/PNG</li>
+          <li>✅ API de IA (Hugging Face)</li>
+          <li>✅ Barra de progreso con onDownloadProgress</li>
+          <li>✅ Manejo de Blobs y URL.createObjectURL</li>
+          <li>✅ Animación CSS dinámica con steps()</li>
         </ul>
-        <RouterLink to="/ej2" class="btn">Ver Ejercicio 2 →</RouterLink>
+        <RouterLink to="/ej3" class="btn">Ver Ejercicio 3 →</RouterLink>
       </div>
     </div>
   </div>

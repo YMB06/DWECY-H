@@ -1,73 +1,79 @@
-# p7-ej2
+# 🤖 Ejercicio 2: AI-UML Architect - Generador de Diagramas con IA
 
-This template should help get you started developing with Vue 3 in Vite.
+Herramienta de diseño asistida por Inteligencia Artificial para generar diagramas UML/Mermaid.
 
-## Recommended IDE Setup
+## 🎯 Características
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- ✅ Generación de diagramas con IA (OpenAI/Groq)
+- ✅ Cancelación de peticiones con AbortController
+- ✅ Renderizado dinámico con Mermaid.js
+- ✅ Exportación en formatos SVG y PNG
+- ✅ Gestión de estado con Pinia
+- ✅ TypeScript + Vue 3 Composition API
 
-## Recommended Browser Setup
+## 🚀 Configuración
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+### 1. Instalar dependencias
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 2. Configurar API Key
 
-```sh
+Copia `.env.example` a `.env.local`:
+
+```bash
+copy .env.example .env.local
+```
+
+Edita `.env.local` y añade tu API key:
+
+**Opción A: OpenAI** (requiere pago)
+```
+VITE_OPENAI_API_KEY=sk-...
+```
+
+**Opción B: Groq** (GRATIS - Recomendado)
+1. Regístrate en https://console.groq.com
+2. Crea una API key
+3. Añade en `.env.local`:
+```
+VITE_OPENAI_API_KEY=gsk_...
+```
+4. Cambia en `src/services/api.ts`:
+```typescript
+baseURL: 'https://api.groq.com/openai/v1'
+```
+
+### 3. Ejecutar
+
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+## 📖 Uso
 
-```sh
-npm run build
-```
+1. Escribe una descripción del diagrama (ej: "Diagrama de flujo de login")
+2. Haz clic en "Generar Diagrama"
+3. Espera a que la IA genere el código Mermaid
+4. El diagrama se renderiza automáticamente
+5. Exporta como SVG o PNG
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+## 🛑 Cancelar Generación
 
-```sh
-npm run test:unit
-```
+Si la IA tarda mucho, usa el botón "Cancelar Generación" para abortar la petición.
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+## 🔧 Tecnologías
 
-```sh
-# Install browsers for the first run
-npx playwright install
+- Vue 3 + TypeScript
+- Pinia (estado)
+- Axios (HTTP + AbortController)
+- Mermaid.js (renderizado)
+- Vite
 
-# When testing on CI, must build the project first
-npm run build
+## 📦 APIs Gratuitas Alternativas
 
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+- **Groq**: https://console.groq.com (Recomendado - Rápido y gratis)
+- **Hugging Face**: https://huggingface.co/inference-api
+- **Together AI**: https://api.together.xyz

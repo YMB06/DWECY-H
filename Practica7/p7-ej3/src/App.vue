@@ -8,7 +8,7 @@ import { RouterView } from 'vue-router'
       <div class="nav-brand">📚 Práctica 7 - Async JS</div>
       <div class="nav-links">
         <RouterLink to="/">🏠 Inicio</RouterLink>
-        <RouterLink to="/ej2">🤖 Ej2: AI-UML</RouterLink>
+        <RouterLink to="/ej3">🎮 Ej3: Sprite Forge</RouterLink>
       </div>
     </nav>
     <RouterView />
@@ -23,8 +23,7 @@ import { RouterView } from 'vue-router'
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 #app {
