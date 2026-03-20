@@ -34,12 +34,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useSpriteStore } from '@/stores/ej3/spriteStore'
 
 const spriteStore = useSpriteStore()
 const prompt = ref('')
 
-const { loading, progress, error } = spriteStore
+const { loading, progress, error } = storeToRefs(spriteStore)
 
 const handleSubmit = async () => {
   if (!prompt.value.trim()) return
